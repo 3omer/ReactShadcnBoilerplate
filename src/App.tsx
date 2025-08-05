@@ -1,23 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Home from "@/pages/Home";
 import Auth from "@/pages/Auth";
+import Dashboard from "@/pages/Dashboard";
+import Home from "@/pages/Home";
 
-import Navbar from "@/components/navbar";
-
-import Providers from "@/components/providers";
 import ProtectedRoute from "@/components/protected-route";
+import Providers from "@/components/providers";
 
 function App() {
   return (
     <Providers>
       <BrowserRouter>
-        <Navbar />
         <Routes>
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Home />} />
           </Route>
 
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/auth" element={<Auth />} />
         </Routes>
       </BrowserRouter>
